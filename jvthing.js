@@ -1,7 +1,3 @@
-// dawg
-// i don't know how to do this shit
-// don't pmo
-
 function getComputerChoice() {
     let choice = ["rock", "paper", "scissors"]
     let compchoice = Math.floor(Math.random() * 3)
@@ -11,8 +7,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let humanchoice = prompt('Rock, Paper, Scissors!')
-    return humanchoice
+    
 }
 
 var humanScore = 0
@@ -69,16 +64,28 @@ function playRound(humanChoice, machineChoice) {
 }
 
 
-let games = 0
 
-while (games < 5){
-    let playerChoice = getHumanChoice()
-    let computerChoice = getComputerChoice()
-    let game = playRound(playerChoice, computerChoice)
-    console.log(game)
-    games++
-    
-}
+
+let bodyTag = document.querySelector("body")
+let rock = document.createElement("button")
+rock.setAttribute("id", "Rock")
+rock.textContent = "Rock!"
+
+let paper = document.createElement("button")
+paper.setAttribute("id", "Paper")
+paper.textContent = "Paper!!"
+
+let scissors = document.createElement("button")
+scissors.setAttribute("id", "Scissors")
+scissors.textContent = "Scissors!"
+
+bodyTag.appendChild(rock)
+bodyTag.appendChild(paper)
+bodyTag.appendChild(scissors)
+
+let computerChoice = getComputerChoice()
+
+
 
 console.log(`Your score: ${humanScore}`)
 console.log(`Computer score: ${computerScore}`)
