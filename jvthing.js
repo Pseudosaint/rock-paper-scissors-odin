@@ -6,9 +6,7 @@ function getComputerChoice() {
     return herchoice
 }
 
-function getHumanChoice() {
-    
-}
+
 
 var humanScore = 0
 var computerScore = 0
@@ -63,27 +61,61 @@ function playRound(humanChoice, machineChoice) {
     }
 }
 
-
-
+let computerChoice = getComputerChoice()
 
 let bodyTag = document.querySelector("body")
-let rock = document.createElement("button")
+
+
+var rock = document.createElement("button")
 rock.setAttribute("id", "Rock")
 rock.textContent = "Rock!"
+
 
 let paper = document.createElement("button")
 paper.setAttribute("id", "Paper")
 paper.textContent = "Paper!!"
 
+
+
 let scissors = document.createElement("button")
 scissors.setAttribute("id", "Scissors")
 scissors.textContent = "Scissors!"
+
+let games = 0
+var playerChoice = ''
+
+    rock.addEventListener("click", ()=>{
+        playerChoice = 'rock'
+        let round = document.createElement('p')
+        let gameplay = playRound(playerChoice, computerChoice)
+        round.textContent = gameplay
+        bodyTag.appendChild(round)
+    })
+    paper.addEventListener("click", ()=>{
+        playerChoice = 'paper'
+        let round = document.createElement('p')
+        let gameplay = playRound(playerChoice, computerChoice)
+        playRound(playerChoice, computerChoice)
+        round.textContent = gameplay
+        bodyTag.appendChild(round)
+    })
+    scissors.addEventListener("click", ()=>{
+        playerChoice = 'scissors'
+        let round = document.createElement('p')
+        let gameplay = playRound(playerChoice, computerChoice)
+        playRound(playerChoice, computerChoice)
+        round.textContent = gameplay
+        bodyTag.appendChild(round)
+    })
+    
+console.log(playerChoice)
+
 
 bodyTag.appendChild(rock)
 bodyTag.appendChild(paper)
 bodyTag.appendChild(scissors)
 
-let computerChoice = getComputerChoice()
+
 
 
 
